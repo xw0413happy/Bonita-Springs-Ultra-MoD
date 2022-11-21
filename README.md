@@ -1,8 +1,8 @@
 
-# Probing Check GUI Desktop App
+# Bonita Spring Ultra Mobility-On-Demand GUI App Development
 
-The app is basically analyzing *two separate files* to check over each other and generate a text document probe check report. 
-The **purpose** of developing this app is to target which fixed route buses are not probed and which dates are their last time probing.
+The app is basically analyzing *Ultra MoD (Mobility On Demand) Data*'s perfomance daily, monthly, annually and with customizing the specific date range. 
+The **purpose** of developing this app is to check over Ultra MoD service perfomance, such as passengers' requests type, seat completion, number of trips, peak trip request during the day by the time of wekkday & weekend.
 
 
 
@@ -10,8 +10,7 @@ The **purpose** of developing this app is to target which fixed route buses are 
 
 This project is used by the following file formats:
 
-- **probing summary csv file**, which is downloaded from *GenFare*
-- **daily operation log folder**, which is provided by *LeeTran Operdation Department*
+- **ultra data excel file**, which is downloaded from *Ultra Dashboard (copy right from LeeTran)*
 
 
 ## Deployment
@@ -19,16 +18,22 @@ This project is used by the following file formats:
 To deploy this project run, the following modules are needed to be imported as belows.
 
 ```bash
-import pandas as pd
 import os
-import math
+import pandas as pd
 import datetime
-from datetime import datetime
-from contextlib import redirect_stdout
+from datetime import timedelta, datetime, time
+import seaborn as sns
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+from matplotlib.dates import date2num
+from matplotlib import dates as mdates
 import tkinter as tk
+# import customtkinter
+from PIL import Image, ImageTk
+from resizeimage import resizeimage
+# from tkinter import ttk
 import tkinter.font as font
 from tkinter import filedialog
-from PIL import Image, ImageTk
 ```
 
 To convert .py into .exe, copy the following command onto your Anaconda Prompt
@@ -37,31 +42,31 @@ auto-py-to-exe
 ```
 
 
-
 ## Repository Structure
 
 #### Update key notes:
 
-
-- (1) only pick up 3-digit Bus number
-- (2) remove text in stand-by list 
-- (3) remove '/' and ' / " from stand_by_list
+- (1) customtkinter couldn't work on .ipynb
+- (2) detect the most last 30-days daily trip, monthly trips & customizing the specific date range
+- (3) constraint all images into the same size
+- (4) change the range of the x-axis with datetimes and remove back (2022 Oct data is special)
 
 
 | File Name | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `ProbeCheck_V4` | `.py` | **Required**. It is the main file, updated to 4th version |
+| `Ultra GUI_11-21-2022` | `.py` | **Required**. It is the main file, updated to 3rd version |
 
 #### Other supplementary files description
 
 ```http
-All uploaded .xlsm files are used for testing.
+Since Ultra data includes private passenger information, ultra data excel file cannot be shared over here.
 ```
 
 | File Name | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `test for opt logs hurr ian`      | `.py` | **Test file** |
-
+| `x-axis datetime change`      | `.py` | **Test file** for the purpose of verifying seaborn image x-axis|
+| `geopandas_9-7-2022`      | `.py` | **Test file** for the purpose of spatial analysis|
+| `file_path_trial_Ultra GUI_8-19-2022`      | `.py` | **Test file** for the purpose of testing whether it would work after changing path|
 
 
 
@@ -80,7 +85,6 @@ Python, R, SQL, ArcGIS, Nlogit, Stata, Power BI, Javascript, HTML, CSS, Synchro,
 
 ## Acknowledgements
 
- - [LeeTran](https://www.leegov.com/leetran/how-to-ride/maps-schedules)
- - [Learn more about how to loop over images by using Python Tkinter](https://www.youtube.com/watch?v=NoTM8JciWaQ&t=565s)
- - [Genfare](https://www.genfare.com/products/)
+ - [LeeTran Ultra](https://www.leegov.com/leetran/about-leetran/current-projects/ultra)
+ - [LeeTran Ultra/Uber](https://www.leegov.com/leetran/ultra/ultra-uber)
 
