@@ -21,7 +21,7 @@ To deploy this project run, the following modules are needed to be imported as b
 import os
 import pandas as pd
 import datetime
-from datetime import timedelta, datetime, time
+from datetime import timedelta, datetime
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
